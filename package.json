@@ -1,0 +1,30 @@
+{
+  "name": "ipscanner",
+  "version": "1.0.0",
+  "description": "ip scanner over different ip and  port range",
+  "main": "portchecker.js",
+  "dependencies": {
+    "ip": "^1.1.5",
+    "netmask": "^1.0.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tanyinghui/ipscanner.git"
+  },
+  "keywords": [
+    "ip",
+    "scanner",
+    "portchecker",
+    "nodejs"
+  ],
+  "author": "Ying Hui",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tanyinghui/ipscanner/issues"
+  },
+  "homepage": "https://github.com/tanyinghui/ipscanner#readme"
+}
