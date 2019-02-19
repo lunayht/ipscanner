@@ -24,7 +24,6 @@ rl.question('Start Port: ', (port) => {
                     s.setTimeout(timeout, function() { s.destroy(); });
                     s.connect(Ports[portx], ip, function() {
                         console.log('OPEN: ' + ip + ':' + Ports[portx]);
-                        // console.log(s.address());
                     });
                     s.on('error', function(e) {
                         s.destroy();
