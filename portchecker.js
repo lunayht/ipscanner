@@ -15,22 +15,22 @@ console.log('Your IP address: ' + ipAdd);
 let block = new Netmask(ipAdd + '/24');
 rl.question('Start Port: ', (port) => {
     rl.question('Port Array: ', (portArray) => {
+        var Ports = Array.from(Array(parseInt(portArray)), (x,i) => i+parseInt(port));
+        // console.log(Ports);
         block.forEach( (ip, long, index) => {
-            var Ports = Array.from(Array(parseInt(portArray)), (x,i) => i+parseInt(port));
-            
             for (portx in Ports) {
                 (function(portx) {
                     var s = new net.Socket();
                     s.setTimeout(timeout, function() { s.destroy(); });
                     s.connect(Ports[portx], ip, function() {
                         console.log('OPEN: ' + ip + ':' + Ports[portx]);
+                        // console.log(s.address());
                     });
                     s.on('error', function(e) {
                         s.destroy();
                     });
                 })(portx);
             };
-        
         });
         rl.close();
     })
