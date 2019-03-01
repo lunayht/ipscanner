@@ -1,11 +1,11 @@
 const { askQuestions } = require('./temp');
 const ip = require('ip');
-const net = require('net');
+
 const Netmask = require('netmask').Netmask;
 const http = require('http');
 const ping = require('ping');
 const ipAdd = ip.address();
-const timeout = 5000;
+
 const keepAliveAgent = new http.Agent({
     maxSockets: 100,
 });
@@ -26,7 +26,6 @@ askQuestions([
     IPs.forEach(function(host){
         ping.sys.probe(host, function(isAlive){
             if (isAlive) {
-                console.log(host);
                 for (portx in Ports) {
                     (function(portx) {
                         var s = keepAliveAgent.createConnection({
@@ -38,7 +37,7 @@ askQuestions([
                         s.on('data', function(data){
                             console.log('DATA: ' + host + ':' + Ports[portx] + ", response: " + data)
                         });
-                        s.setTimeout(timeout, function() { 
+                        s.setTimeout(portArray * 2, function() { 
                             s.destroy(); 
                         });
                         s.on('error', function() {
