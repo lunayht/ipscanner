@@ -1,4 +1,4 @@
-const { askQuestions } = require('./temp');
+const { askQuestions } = require('./question');
 const ip = require('ip');
 
 const Netmask = require('netmask').Netmask;
