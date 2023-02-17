@@ -5,7 +5,7 @@
   "main": "portchecker.js",
   "dependencies": {
     "ip": "^1.1.5",
-    "netmask": "^1.0.6",
+    "netmask": "^2.0.1",
     "ping": "^0.2.2"
   },
   "devDependencies": {},
