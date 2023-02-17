@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tanyinghui/ipscanner.git"
+    "url": "git+https://github.com/lunayht/ipscanner.git"
   },
   "keywords": [
     "ip",
@@ -25,7 +25,7 @@
   "author": "Ying Hui",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/tanyinghui/ipscanner/issues"
+    "url": "https://github.com/lunayht/ipscanner/issues"
   },
-  "homepage": "https://github.com/tanyinghui/ipscanner#readme"
+  "homepage": "https://github.com/lunayht/ipscanner#readme"
 }
