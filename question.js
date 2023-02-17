@@ -13,9 +13,9 @@ const Ask = function(questions) {
         let rl = readline.createInterface({
             input: process.stdin,
             output: process.stdout
-        }); 
+        });
         let results = [];
-        for(let i=0; i < questions.length; i++) {
+        for (let i = 0; i < questions.length; i++) {
             const result = await AskQuestion(rl, questions[i]);
             results.push(result);
         }

@@ -1,4 +1,6 @@
-const { askQuestions } = require('./question');
+const {
+    askQuestions
+} = require('./question');
 const ip = require('ip');
 
 const Netmask = require('netmask').Netmask;
@@ -14,27 +16,28 @@ let block = new Netmask(ipAdd + '/24');
 
 askQuestions([
     'Start Port: ',
-    'Port Array: ',
+    'Array Range: ',
 ]).then(answers => {
     var port = parseInt(answers[0]);
     var portArray = parseInt(answers[1]);
-    var Ports = Array.from(Array(portArray), (x,i) => i+port);
-    block.forEach( (ip, long, index) => {
-        ping.sys.probe(ip, function(isAlive){
+    var Ports = Array.from(Array(portArray), (x, i) => i + port);
+    block.forEach((ip, long, index) => {
+        ping.sys.probe(ip, function(isAlive) {
             if (isAlive) {
                 for (portx in Ports) {
                     (function(portx) {
                         var s = keepAliveAgent.createConnection({
                             host: ip,
-                            port: Ports[portx], 
-                            family:4}, () =>{
+                            port: Ports[portx],
+                            family: 4
+                        }, () => {
                             console.log('OPEN: ' + ip + ':' + Ports[portx])
                         });
-                        s.on('data', function(data){
+                        s.on('data', function(data) {
                             console.log('DATA: ' + ip + ':' + Ports[portx] + ", response: " + data)
                         });
-                        s.setTimeout(portArray * 2, function() { 
-                            s.destroy(); 
+                        s.setTimeout(portArray * 2, function() {
+                            s.destroy();
                         });
                         s.on('error', function() {
                             s.destroy();
@@ -45,6 +48,3 @@ askQuestions([
         });
     });
 });
-
-
-
